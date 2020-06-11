@@ -1,24 +1,8 @@
-# README
+# What is social-media-api?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+social-media-api helps you to implement social media easily, and is a great tool for It is an API that allows you to
+For example, you can register users, post, comment, like and follow them.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Table of Contents
+- [What is social-media-api?](#What-is-social-media-api)
+- [Table of Contents](#Table-of-Contents)
