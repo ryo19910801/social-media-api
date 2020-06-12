@@ -17,7 +17,9 @@ services:
       - .:/social-media-api
     ports:
       - "3000:3000"
-    links:
+    depends_on:
       - db
+    stdin_open: true
+    tty: true
 volumes:
   mysql_data:
