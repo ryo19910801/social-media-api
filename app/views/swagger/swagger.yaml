@@ -1,10 +1,67 @@
 swagger: "2.0"
 info:
   title: "social-media-api"
+  description: "API for social media"
+  contact:
+    email: "naruse19910801@gmail.com"
+  license:
+    name: "ryo19910801/social-media-api"
+    url: "https://github.com/ryo19910801/social-media-api"
 basePath: "/api/v1"
 
 securityDefinitions:
   tokenAuth:
     type: "apiKey"
     in: "header"
-    name: "Authorization"
+    name: Authorization
+
+paths:
+  /users:
+    post:
+      summary: users
+      description: Create a user
+      parameters:
+        - name: user
+          in: body
+          description: Create a user
+          schema:
+            $ref: '#/definitions/UserCreateAttributes'
+      responses:
+        200:
+          description: Successfully returned a list of artists 
+          schema:
+            type: "object"
+            properties:
+              user:
+                $ref: '#/definitions/UserAttributes'
+definitions:
+  UserCreateAttributes:
+    properties:
+      name:
+        type: string
+        required: true
+      self_introduction:
+        type: string
+      website_url:
+        type: string
+      avatar:
+        type: string
+  UserAttributes:
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      self_introduction:
+        type: string
+      website_url:
+        type: string
+      avatar:
+        type: string
+      auth_token:
+        type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
