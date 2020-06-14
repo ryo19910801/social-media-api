@@ -25,17 +25,17 @@ paths:
           in: body
           description: Create a user
           schema:
-            $ref: '#/definitions/UserCreateAttributes'
+            $ref: '#/definitions/InputCreateUser'
       responses:
         200:
-          description: Successfully returned a list of artists 
+          description: Successfully returned a create user
           schema:
             type: "object"
             properties:
               user:
-                $ref: '#/definitions/UserAttributes'
+                $ref: '#/definitions/OutputCreateUser'
 definitions:
-  UserCreateAttributes:
+  InputCreateUser:
     properties:
       name:
         type: string
@@ -44,9 +44,7 @@ definitions:
         type: string
       website_url:
         type: string
-      avatar:
-        type: string
-  UserAttributes:
+  OutputCreateUser:
     properties:
       id:
         type: integer
