@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
   end
 
   it "is attach avatar file" do
-    file = fixture_file_upload(Rails.root.join('spec', 'files', 'avatar_test.png'), 'image/png')
+    file = fixture_file_upload(Rails.root.join('spec', 'files', 'avatar.png'), 'image/png')
     valid_user.avatar = file
     expect(valid_user).to be_valid
   end
