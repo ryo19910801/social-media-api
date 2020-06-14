@@ -21,11 +21,26 @@ paths:
       summary: users
       description: Create a user
       parameters:
-        - name: user
-          in: body
-          description: Create a user
-          schema:
-            $ref: '#/definitions/InputCreateUser'
+        - name: user[name]
+          in: formData
+          description: name
+          required: true
+          type: string
+        - name: user[self_introduction]
+          in: formData
+          description: self introduction
+          required: false
+          type: string
+        - name: user[website_url]
+          in: formData
+          description: website url
+          required: false
+          type: string
+        - name: user[avatar]
+          in: formData
+          description: avatar file
+          required: false
+          type: file
       responses:
         200:
           description: Successfully returned a create user
@@ -35,15 +50,6 @@ paths:
               user:
                 $ref: '#/definitions/OutputCreateUser'
 definitions:
-  InputCreateUser:
-    properties:
-      name:
-        type: string
-        required: true
-      self_introduction:
-        type: string
-      website_url:
-        type: string
   OutputCreateUser:
     properties:
       id:
@@ -62,4 +68,6 @@ definitions:
       created_at:
         type: string
       updated_at:
+        type: string
+      avatar_url:
         type: string
