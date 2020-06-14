@@ -12,4 +12,10 @@ RSpec.describe User, type: :model do
     invalid_user.valid?
     expect(invalid_user.errors[:name]).to include("can't be blank")
   end
+
+  it "is attach avatar file" do
+    file = fixture_file_upload(Rails.root.join('spec', 'files', 'avatar_test.png'), 'image/png')
+    valid_user.avatar = file
+    expect(valid_user).to be_valid
+  end
 end
