@@ -41,6 +41,32 @@ paths:
           description: avatar file
           required: false
           type: file
+    patch:
+      summary: users
+      description: Update a user
+      security:
+        - tokenAuth: []
+      parameters:
+        - name: user[name]
+          in: formData
+          description: name
+          required: true
+          type: string
+        - name: user[self_introduction]
+          in: formData
+          description: self introduction
+          required: false
+          type: string
+        - name: user[website_url]
+          in: formData
+          description: website url
+          required: false
+          type: string
+        - name: user[avatar]
+          in: formData
+          description: avatar file
+          required: false
+          type: file
       responses:
         200:
           description: Successfully returned a create user
@@ -48,9 +74,30 @@ paths:
             type: "object"
             properties:
               user:
-                $ref: '#/definitions/OutputCreateUser'
+                $ref: '#/definitions/OutputUpdateUser'
 definitions:
   OutputCreateUser:
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      self_introduction:
+        type: string
+      website_url:
+        type: string
+      avatar:
+        type: string
+      auth_token:
+        type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      avatar_url:
+        type: string
+  OutputUpdateUser:
     properties:
       id:
         type: integer
