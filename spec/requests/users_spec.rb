@@ -61,4 +61,19 @@ RSpec.describe "Users", type: :request do
       end
     end
   end
+
+  describe "DELETE /users" do
+    let!(:user) { create(:user) }
+    it "return status 200" do
+      # TODO shared_context Authorization
+      delete '/api/v1/users/', headers: { "Authorization" => "Token token=#{user.auth_token}" }
+      expect(response).to have_http_status(200)
+    end
+    it "destroy a user" do
+      expect {
+        # TODO shared_context Authorization
+        delete '/api/v1/users/', headers: { "Authorization" => "Token token=#{user.auth_token}" }
+      }.to change(User, :count).by(-1)
+    end
+  end
 end

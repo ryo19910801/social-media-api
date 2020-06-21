@@ -16,6 +16,10 @@ module Api
         current_user.update!(update_params)
       end
 
+      def destroy
+        current_user.destroy!
+      end
+
       private
       def create_params
         params.require(:user).permit(:name, :self_introduction, :website_url, :avatar)

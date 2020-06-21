@@ -75,6 +75,20 @@ paths:
             properties:
               user:
                 $ref: '#/definitions/OutputUpdateUser'
+    delete:
+      summary: users
+      description: Destroy a user
+      security:
+        - tokenAuth: []
+      responses:
+        200:
+          description: Successfully a create user
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: bye!
 definitions:
   OutputCreateUser:
     properties:
