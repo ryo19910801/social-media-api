@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   get 'api/swagger.yaml', to: 'swagger#swagger'
   namespace :api, {format: 'json'} do
     namespace :v1 do
-      resources :users, only: [:create]
-      patch "users"  => "users#update"
+      resource :users, only: [:create, :update]
     end
   end
 end
